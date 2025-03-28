@@ -1,0 +1,87 @@
+.taskListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.taskListTitle {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.taskList {
+    list-style: decimal;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.taskItem {
+    display: flex;
+    display: list-item;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.taskItem span {
+    flex-grow: 1;
+    font-size: 1.2rem;
+}
+
+.taskButtons {
+    display: flex;
+    gap: 5px;
+    justify-items: center;
+    justify-content: center;
+    
+}
+
+.taskButtons button {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+
+.taskButtons .dneBtn {
+    margin-left: 5px;
+}
+
+.taskButtons .dltBtn {
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.priorityBtns button{
+    font-size: 10px;
+}
+
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 350px) {
+    .taskItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .taskButtons {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

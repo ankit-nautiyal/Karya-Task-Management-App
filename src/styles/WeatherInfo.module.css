@@ -1,0 +1,21 @@
+.container{
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 8px;
+        /* margin-top: 10px; */
+        /* margin: auto; */
+        text-align: center;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+}
+
+.container p{
+    margin: auto;
+}
+
+.container h4{
+    margin-bottom: 0px;
+}
+
+.container h3{
+    margin-top: 0px;
+}

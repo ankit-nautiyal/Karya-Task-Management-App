@@ -1,0 +1,45 @@
+.taskInputContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.taskForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.taskInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.taskForm button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.taskForm button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .taskForm {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .taskInput {
+        width: 100%;
+    }
+}
