@@ -14,14 +14,16 @@ export default function TaskInput(){
         if (task.trim() !== "") {
             dispatch(addTodo(task));
             setTask("");
-        };
+        } else {
+            alert("Task cannot be empty!");
+        }
     }
 
     return(
         <div className={styles.taskInputContainer}>
             <form onSubmit={handleSubmit} className={styles.taskForm}>
                 <TextField className={styles.taskInput}  required type="text" placeholder="Enter your task " value={task} onChange={(event)=> setTask(event.target.value)}></TextField>
-                <Button variant="contained" onClick={handleSubmit}>Add Task</Button>
+                <Button variant="contained" onClick={handleSubmit}>Add Task </Button>
             </form>
         </div>
     );

@@ -36,7 +36,7 @@ const Auth = () => {
     return (
 
             <div className={styles.authContainer}>
-                <h2 className={styles.authTitle}>Login into Task Manager App</h2>
+                <h2 className={styles.authTitle}>Login into Task Management App</h2>
                 
                 <div className={styles.authForm}>
                     <TextField  label="Username" onChange={(e) => setUsername(e.target.value)} required error={error} onKeyDown={handleEnter}/>

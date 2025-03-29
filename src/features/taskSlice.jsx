@@ -1,8 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-// const initialState= {
-//     todos: [{ id: nanoid(), task: "", isDone: false}],
-// };
 
 // Load saved tasks from localStorage or set an empty array as default
 const loadTodosFromStorage = () => {
@@ -42,10 +39,29 @@ export const taskSlice= createSlice({
             const todo = state.todos.find((todo) => todo.id === action.payload);
             if (todo) {
                 todo.isDone = !todo.isDone;  // Toggle true/false
+                localStorage.setItem("todos", JSON.stringify(state.todos)); // Update localStorage
             }
-            localStorage.setItem("todos", JSON.stringify(state.todos)); // Update localStorage
+            
         },
 
+        editTodo: (state, action) =>{
+            const currTodo = state.todos.find((todo) => todo.id === action.payload) || "";
+
+            if (currTodo) {
+                let newTodo = prompt("Edit your task:", currTodo.task); // Open prompt with pre-filled task
+
+                if (newTodo === null) return; // If user cancels, exit function
+
+
+                if (newTodo.trim() === "") {         // Prevents empty input
+                    alert("Task cannot be empty!");
+                    return;
+                }
+
+                currTodo.task= newTodo;
+                localStorage.setItem("todos", JSON.stringify(state.todos)); // Update localStorage
+            }
+        },
 
 
         setPriority: (state, action) => {
@@ -59,5 +75,5 @@ export const taskSlice= createSlice({
     }
 });
 
-export const {addTodo, deleteTodo, markAsDone, setPriority} = taskSlice.actions;
+export const {addTodo, deleteTodo, markAsDone, editTodo, setPriority} = taskSlice.actions;
 export default taskSlice.reducer;

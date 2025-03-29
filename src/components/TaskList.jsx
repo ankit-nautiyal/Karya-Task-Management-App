@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
+import { Button, Checkbox, FormControlLabel } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, markAsDone } from "../features/taskSlice.jsx";
+import { deleteTodo, markAsDone, editTodo } from "../features/taskSlice.jsx";
 import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
 import { logout } from "../features/authSlice.jsx";
@@ -84,6 +84,10 @@ export default function TaskList(){
         dispatch(markAsDone(id));
     }
 
+    const handleEdit= (id) =>{
+        dispatch(editTodo(id));
+    }
+
     const handleLogout = () => {
         dispatch(logout());
         navigate("/auth");
@@ -106,7 +110,7 @@ export default function TaskList(){
         <div className={styles.taskListContainer}>
             <Button variant="contained" onClick={handleLogout} sx={{position: 'absolute', top: 0, right: 0, margin: '15px'}}> Logout</Button>
 
-            <h2 className={styles.taskListTitle}>Task Manager App</h2>
+            <h2 className={styles.taskListTitle}>Task Management App</h2>
             <TaskInput/>
 
             {outdoorTaskDetected && weather && <WeatherInfo weather={weather} error={weatherError && "Invalid city name!"} />}
@@ -114,13 +118,16 @@ export default function TaskList(){
             <ol className={styles.taskList}>
                 {sortedTodos.map((todo) => (
                     <li key={todo.id} className={styles.taskItem}>
-
+                        {/* <Checkbox  color="success" onClick={() => handleMarkAsDone(todo.id)} /> */}
+                        {/* <FormControlLabel control={<Checkbox />} label="Label" /> */}
                         <span className={todo.isDone ? styles.done : ""}> {todo.task} </span> 
                         <hr />
 
                         <div  className={styles.taskButtons}>
+                            <Button className={styles.editBtn} variant="outlined" onClick={() => handleEdit(todo.id)}> 📝Edit</Button>
                             <Button className={styles.dneBtn} variant="outlined" onClick={() => handleMarkAsDone(todo.id)}> ✅Done</Button>
                             <Button className={styles.dltBtn} variant="outlined" onClick={() => handleDelete(todo.id)}> ❌Delete</Button>
+
                         </div>
                         
                         
