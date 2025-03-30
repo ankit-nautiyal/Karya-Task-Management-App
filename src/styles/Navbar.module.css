@@ -1,13 +1,9 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* Left, Center, Right */
     width: 100%;
     background-color: rgb(99, 24, 191);
-
-    /* color: white; */
     padding: 10px 20px;
-    overflow: hidden; /* Prevents overflow */
 }
 
 .navTitle {

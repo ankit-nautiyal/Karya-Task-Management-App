@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import styles from "../styles/Navbar.module.css";
 import FilterMenu from "./FilterMenu.jsx"; 
 import { logout } from "../features/authSlice.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 
@@ -16,21 +16,20 @@ export default function Navbar() {
         navigate("/auth");
     };
 
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
     return (
         <AppBar position="fixed"  >
-            <Toolbar className={styles.navbar}>
-            
-                <FilterMenu className={styles.filterMenu} />
+            <Toolbar className={styles.navbar} sx={{justifyContent: isAuthenticated ? "space-between" : "center"}}>
 
-            
+                {isAuthenticated && <FilterMenu className={styles.filterMenu}/>  }
+                
                 <Typography variant="h5" className={styles.navTitle}>
                     <img src="favicon.webp" alt="logo" />
                     Task Management App
                 </Typography>
 
-            
-                <Button className={styles.logoutBtn} onClick={handleLogout} >Logout</Button>
-            
+                {isAuthenticated && <Button className={styles.logoutBtn} onClick={handleLogout} >Logout</Button> }
                 
             </Toolbar>
         </AppBar>

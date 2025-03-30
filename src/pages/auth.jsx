@@ -1,9 +1,10 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../features/authSlice.jsx";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 import styles from '../styles/Auth.module.css';
 
 
@@ -32,8 +33,11 @@ const Auth = () => {
         }
     }
 
+    
 
     return (
+        <>
+            <Navbar/>
 
             <div className={styles.authContainer}>
                 <h2 className={styles.authTitle}>Login into Task Management App</h2>
@@ -46,6 +50,8 @@ const Auth = () => {
                 
             </div>
 
+            <Footer/>
+        </>
     );
 };
 

@@ -5,7 +5,6 @@ import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useMemo, useCallback } from "react";
 import WeatherInfo from "./WeatherInfo.jsx";
 import { clearWeatherError } from "../features/weatherSlice.jsx";
@@ -18,13 +17,12 @@ const outdoorKeywords = ["swim", "walk", "run", "office", "school", "college", "
 
     
 export default function TaskList(){
-    console.log("TaskList component rendered!");
+
     const todos= useSelector((state) => state.todo.todos);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const city = useSelector((state) => state.auth.city);  // Get user city from Redux store
     const weather = useSelector((state) => state.weather?.data);  // to handle undefined case also
     const weatherError = useSelector((state) => state.weather?.error);  // Get weather error
-    const navigate= useNavigate();
     const dispatch= useDispatch();
     const [outdoorTaskDetected, setOutdoorTaskDetected] = useState(false);
 
