@@ -6,6 +6,7 @@ import { TextField } from '@mui/material';
 import styles from '../styles/TaskInput.module.css';
 import AddIcon from '@mui/icons-material/Add';
 
+
 export default function TaskInput(){
     const [task, setTask] = useState("");
     const dispatch= useDispatch();
@@ -23,7 +24,7 @@ export default function TaskInput(){
     return(
         <div className={styles.taskInputContainer}>
             <form onSubmit={handleSubmit} className={styles.taskForm}>
-                <TextField className={styles.taskInput}  required type="text" placeholder="Enter your task " value={task} onChange={(event)=> setTask(event.target.value)}></TextField>
+                <TextField  className={styles.taskInput}  required type="text" placeholder="Enter your task " value={task} onChange={(event)=> setTask(event.target.value)}></TextField>
                 <Button variant="contained" onClick={handleSubmit}>Add Task <AddIcon/> </Button>
             </form>
         </div>

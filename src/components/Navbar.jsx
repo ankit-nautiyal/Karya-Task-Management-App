@@ -4,7 +4,7 @@ import FilterMenu from "./FilterMenu.jsx";
 import { logout } from "../features/authSlice.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Navbar() {
 
@@ -29,7 +29,10 @@ export default function Navbar() {
                     Task Management App
                 </Typography>
 
-                {isAuthenticated && <Button className={styles.logoutBtn} onClick={handleLogout} >Logout</Button> }
+                {isAuthenticated && <Button className={styles.logoutBtn} onClick={handleLogout} >
+                    <LogoutIcon sx={{marginRight: '5px'}} />
+                    Logout
+                </Button> }
                 
             </Toolbar>
         </AppBar>

@@ -16,7 +16,7 @@
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
 .taskForm button {

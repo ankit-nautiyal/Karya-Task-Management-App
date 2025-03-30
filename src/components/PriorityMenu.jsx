@@ -7,16 +7,10 @@ export default function PriorityMenu({ priority, onChange }) {
             <Select
                 value={priority}
                 onChange={(e) => onChange(e.target.value)}
-                // sx={{
-                //     backgroundColor: priority === "High" ? "red" :
-                //                     priority === "Medium" ? "orange" :
-                //                     priority === "Low" ? "green" : "white",
-                //     color: "black",
-                // }}
 
-                sx={{borderRadius: '50px'}}
+                sx={{borderRadius: '50px', fontSize: '14px'}}
             >
-                <MenuItem value="High">🔴 High</MenuItem>
+                <MenuItem value="High" >🔴 High</MenuItem>
                 <MenuItem value="Medium">🟡 Medium</MenuItem>
                 <MenuItem value="Low">🟢 Low</MenuItem>
             </Select>

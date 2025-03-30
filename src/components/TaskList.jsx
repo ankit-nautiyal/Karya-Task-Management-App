@@ -17,6 +17,7 @@ import PriorityMenu from "./PriorityMenu.jsx";
 import StatusMenu from "./StatusMenu.jsx";
 
 
+
 const outdoorKeywords = ["swim", "walk", "run", "office", "school", "college", "shopping", "market", "meet", "go", "drive", "gym", "attend"]; //can be updated later
 
     
@@ -139,24 +140,35 @@ export default function TaskList(){
                                     <Draggable key={todo.id} draggableId={todo.id.toString()} index={index}>
                                         {(provided) => (
                                             <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={styles.taskItem}>
-                                            
-                                                <FormControlLabel 
-                                                    control={<Checkbox  color="success" onChange={() => handleMarkAsDone(todo.id)} checked={todo.isDone} />}
-                                                    label={<span className={todo.isDone ? styles.done : ""}> {todo.task} </span> } 
-                                                />
+                                                
+                                                <div className={styles.taskRow}>
+                                                    <FormControlLabel 
+                                                        control={<Checkbox  color="success" onChange={() => handleMarkAsDone(todo.id)} checked={todo.isDone} />}
+                                                        label={<span className={todo.isDone ? styles.done : ""}> {todo.task} </span> } 
+                                                    />
+                                                
+                                                    
+
+                                                    <div  className={styles.taskButtons}>
+                                                        <Button className={styles.editBtn}  variant="outlined" onClick={() => handleEdit(todo.id)}> 
+                                                            <EditIcon sx={{width: '17px', height: '17px'}} /> Edit
+                                                        </Button>
+
+                                                        <Button className={styles.dltBtn}  variant="outlined" onClick={() => handleDelete(todo.id)}> 
+                                                            <DeleteIcon sx={{width: '17px', height: '17px'}} /> Delete 
+                                                        </Button>
+                                                    </div>
+                                        
+                                                </div>
                                                 
                                                 <hr />
 
-                                                <div  className={styles.taskButtons}>
-                                                    <Button className={styles.editBtn}  variant="outlined" onClick={() => handleEdit(todo.id)}> <EditIcon sx={{width: '17px', height: '17px'}} /> Edit</Button>
-                                                    <Button className={styles.dltBtn}  variant="outlined" onClick={() => handleDelete(todo.id)}> <DeleteIcon sx={{width: '17px', height: '17px'}} /> Delete</Button>
-                                                </div>
-
                                                 <div className={styles.todoMenus}>
-                                                    <PriorityMenu priority={todo.priority} onChange={(newPriority) => handlePriorityChange(todo.id, newPriority)} />
-                                                    <StatusMenu status={todo.status} onChange={(newStatus) => handleStatusChange(todo.id, newStatus)} />
+                                                    <span> <PriorityMenu priority={todo.priority} onChange={(newPriority) => handlePriorityChange(todo.id, newPriority)}  /></span>
+                                                    <span> <StatusMenu status={todo.status} onChange={(newStatus) => handleStatusChange(todo.id, newStatus)} /></span>
+                                                    
+                                                    
                                                 </div>
-                                            
                                                 
                                                 
 

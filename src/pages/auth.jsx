@@ -6,6 +6,7 @@ import { Button, TextField } from "@mui/material";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import styles from '../styles/Auth.module.css';
+import LoginIcon from '@mui/icons-material/Login';
 
 
 const Auth = () => {
@@ -45,7 +46,10 @@ const Auth = () => {
                 <div className={styles.authForm}>
                     <TextField  label="Username" onChange={(e) => setUsername(e.target.value)} required error={error} onKeyDown={handleEnter}/>
                     <TextField  label="City" onChange={(e) => setCity(e.target.value)} required error={error} onKeyDown={handleEnter} />
-                    <Button  variant="contained" onClick={handleLogin}>Login</Button>
+                    <Button  variant="contained" onClick={handleLogin}>
+                        <LoginIcon sx={{marginRight: '5px'}}/>
+                        Login
+                    </Button>
                 </div>
                 
             </div>

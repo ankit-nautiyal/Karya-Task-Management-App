@@ -63,9 +63,12 @@
     background-color: blue;
 }
 
-/* .todoMenus{
-    
-} */
+.taskRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 5px; */
+}
 
 
 

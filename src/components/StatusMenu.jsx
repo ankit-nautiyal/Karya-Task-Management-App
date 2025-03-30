@@ -7,13 +7,8 @@ export default function StatusMenu({ status, onChange }) {
             <Select
                 value={status}
                 onChange={(e) => onChange(e.target.value)}
-                // sx={{
-                //     backgroundColor: status === "in-progress" ? "#FFD700" :
-                //                     status === "todo" ? "#ADD8E6" :
-                //                     status === "done" ? "#90EE90" : "white",
-                //     color: "black",
-                // }}
-                sx={{borderRadius: '50px'}}
+                sx={{borderRadius: '50px', fontSize: '14px'}}
+        
             >
                 <MenuItem value="todo">📌 To-Do</MenuItem>
                 <MenuItem value="in-progress">⚙️ In-Progress</MenuItem>
