@@ -20,13 +20,12 @@
 }
 
 .taskForm button {
-    background-color: #00bc03;
+    background-color: rgb(99, 24, 191);
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    /* border-radius: 100px; */
 }
 
 .taskForm button:hover {

@@ -11,6 +11,10 @@ import { clearWeatherError } from "../features/weatherSlice.jsx";
 import { fetchWeather } from "../api/weatherAPI.js";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import styles from '../styles/TaskList.module.css';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import PriorityMenu from "./PriorityMenu.jsx";
+import StatusMenu from "./StatusMenu.jsx";
 
 
 const outdoorKeywords = ["swim", "walk", "run", "office", "school", "college", "shopping", "market", "meet", "go", "drive", "gym", "attend"]; //can be updated later
@@ -144,69 +148,18 @@ export default function TaskList(){
                                                 <hr />
 
                                                 <div  className={styles.taskButtons}>
-                                                    <Button className={styles.editBtn} variant="outlined" onClick={() => handleEdit(todo.id)}> 📝Edit</Button>
-                                                    <Button className={styles.dltBtn} variant="outlined" onClick={() => handleDelete(todo.id)}> ❌Delete</Button>
-
+                                                    <Button className={styles.editBtn}  variant="outlined" onClick={() => handleEdit(todo.id)}> <EditIcon sx={{width: '17px', height: '17px'}} /> Edit</Button>
+                                                    <Button className={styles.dltBtn}  variant="outlined" onClick={() => handleDelete(todo.id)}> <DeleteIcon sx={{width: '17px', height: '17px'}} /> Delete</Button>
                                                 </div>
+
+                                                <div className={styles.todoMenus}>
+                                                    <PriorityMenu priority={todo.priority} onChange={(newPriority) => handlePriorityChange(todo.id, newPriority)} />
+                                                    <StatusMenu status={todo.status} onChange={(newStatus) => handleStatusChange(todo.id, newStatus)} />
+                                                </div>
+                                            
                                                 
                                                 
 
-                                                {/* Priority Selection Buttons */}
-
-                                                <div className={styles.priorityBtns}>
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color:" black", backgroundColor: todo.priority === "High" ? "red" : "white" }}
-                                                        onClick={() => handlePriorityChange(todo.id, "High")}
-                                                    >
-                                                        High
-                                                    </Button>
-
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color:" black", backgroundColor: todo.priority === "Medium" ? "orange" : "white" }}
-                                                        onClick={() => handlePriorityChange(todo.id, "Medium")}
-                                                    >
-                                                        Medium
-                                                    </Button>
-
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color:" black", backgroundColor: todo.priority === "Low" ? "green" : "white" }}
-                                                        onClick={() => handlePriorityChange(todo.id, "Low")}
-                                                    >
-                                                        Low
-                                                    </Button>
-                                                </div>
-
-                                                {/* Status Selection Buttons */}
-                                                <div className={styles.statusBtns}>
-
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color: "black", backgroundColor: todo.status === "in-progress" ? "#FFD700" : "white" }}
-                                                        onClick={() => handleStatusChange(todo.id, "in-progress")}
-                                                    >
-                                                        In-Progress
-                                                    </Button>
-
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color: "black", backgroundColor: todo.status === "todo" ? "#ADD8E6" : "white" }}
-                                                        onClick={() => handleStatusChange(todo.id, "todo")}
-                                                    >
-                                                        To-Do
-                                                    </Button>
-                                                
-                                                    <Button 
-                                                        variant="contained" 
-                                                        style={{ color: "black", backgroundColor: todo.status === "done" ? "#90EE90" : "white" }}
-                                                        onClick={() => handleStatusChange(todo.id, "done")}
-                                                    >
-                                                        Done
-                                                    </Button>
-                                                </div>
-                                        
                                             </li>
                                         )}
                                         

@@ -41,30 +41,33 @@
     gap: 5px;
     justify-items: center;
     justify-content: center;
-    
+
 }
 
 .taskButtons button {
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 0.9rem;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-size: 10px;
 }
 
-.taskButtons .dneBtn {
-    margin-left: 5px;
+.taskButtons .dltBtn{
+    color: white;
+    background-color: red;
 }
 
-.taskButtons .dltBtn {
-    margin-left: 5px;
-    margin-right: 15px;
+.taskButtons .editBtn{
+    color: white;
+    background-color: blue;
 }
 
-.priorityBtns button{
-    font-size: 10px;
-}
+/* .todoMenus{
+    
+} */
+
+
 
 
 .done {
