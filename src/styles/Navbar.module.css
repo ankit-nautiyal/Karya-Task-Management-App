@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Left, Center, Right */
+    width: 100%;
+    background-color: rgb(99, 24, 191);
+
+    /* color: white; */
+    padding: 10px 20px;
+    overflow: hidden; /* Prevents overflow */
+}
+
+.navTitle {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.navTitle img{
+    height: 22px;
+    width: 22px;
+}
+
+.navbar .logoutBtn {
+    color: white !important;
+    padding-right: 40px;
+}
+
+.filterMenu{
+    width: 200px; 
+    min-width: 150px; 
+}

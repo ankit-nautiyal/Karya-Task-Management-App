@@ -1,0 +1,18 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;  /* Full width */
+    /* background-color: rgba(16, 85, 214, 0.765); */
+    background-color: rgb(99, 24, 191);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    opacity: 1;
+}
+
+.footer img{
+    height: 20px;
+    width: 20px;
+}

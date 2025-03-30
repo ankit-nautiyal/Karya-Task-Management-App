@@ -1,15 +1,18 @@
 import { Button, Checkbox, FormControlLabel } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, markAsDone, editTodo } from "../features/taskSlice.jsx";
+import { deleteTodo, markAsDone, editTodo, updateTodoOrder, addTodo, setStatus } from "../features/taskSlice.jsx";
 import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
-import { logout } from "../features/authSlice.jsx";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import WeatherInfo from "./WeatherInfo.jsx";
 import { clearWeatherError } from "../features/weatherSlice.jsx";
 import { fetchWeather } from "../api/weatherAPI.js";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import styles from '../styles/TaskList.module.css';
+
 
 const outdoorKeywords = ["swim", "walk", "run", "office", "school", "college", "shopping", "market", "meet", "go", "drive", "gym", "attend"]; //can be updated later
 
@@ -47,11 +50,6 @@ export default function TaskList(){
     
     //  Check if there's any outdoor task & fetch weather
     useEffect(() => {
-        console.log("Checking for outdoor tasks...");
-        if (!city) {
-            console.log("City is missing! Weather fetch skipped.");
-            return;
-        };  
 
         const hasOutdoorTask = todos.some(todo =>
             outdoorKeywords.some(keyword => todo.task.toLowerCase().includes(keyword))
@@ -69,100 +67,162 @@ export default function TaskList(){
         }
     }, [todos, city]);
 
+    const handleDelete = useCallback((id) => {
+        if (confirm("Do you really want to delete this task?")) {
+            dispatch(deleteTodo(id));
+        }
+    }, [dispatch]);  // Only changes if dispatch changes
     
 
 
-    const handleDelete= (id)=>{
-        let dltConfirm= confirm("Do you really want to delete this task?")
-
-        if (dltConfirm) {
-            dispatch(deleteTodo(id));
-        }
-    }
 
     const handleMarkAsDone= (id)=>{
         dispatch(markAsDone(id));
     }
 
+
     const handleEdit= (id) =>{
         dispatch(editTodo(id));
     }
 
-    const handleLogout = () => {
-        dispatch(logout());
-        navigate("/auth");
-    };
 
     const handlePriorityChange = (id, priority) => {
         dispatch(setPriority({ id, priority }));
     };
 
     //  Sorting tasks based on priority
-    const sortedTodos = [...todos].sort((a, b) => {
+    const sortedTodos = useMemo(() => {
         const priorityOrder = { High: 1, Medium: 2, Low: 3 };
-        return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
-    });
+        return [...todos].sort((a, b) => (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4));
+    }, [todos]);  // Recomputes only when todos change
+    
+    
 
-    // console.log("Weather Data in TaskList.jsx:", weather); // Debugging log
+    const handleDragEnd = useCallback((result) => {
+        if (!result.destination) return;  // If dropped outside, do nothing
+    
+        const reorderedTodos = [...todos];
+        const [movedTodo] = reorderedTodos.splice(result.source.index, 1);
+        reorderedTodos.splice(result.destination.index, 0, movedTodo);
+    
+        dispatch(updateTodoOrder(reorderedTodos)); // Update Redux store
+
+        // Persist the new order to localStorage
+        localStorage.setItem("todos", JSON.stringify(reorderedTodos));
+    }, [todos, dispatch]);  // Only re-created if todos or dispatch changes
+
+    const handleStatusChange = (id, status) => {
+        dispatch(setStatus({ id, status }));
+    };
+    
     
 
     return(
-        <div className={styles.taskListContainer}>
-            <Button variant="contained" onClick={handleLogout} sx={{position: 'absolute', top: 0, right: 0, margin: '15px'}}> Logout</Button>
+        <>  
+            <Navbar/>
+            
+            <div className={styles.taskListContainer}>
+                <TaskInput/>
 
-            <h2 className={styles.taskListTitle}>Task Management App</h2>
-            <TaskInput/>
+                {outdoorTaskDetected && weather && <WeatherInfo weather={weather} error={weatherError && "Invalid city name!"} />}
 
-            {outdoorTaskDetected && weather && <WeatherInfo weather={weather} error={weatherError && "Invalid city name!"} />}
+                <DragDropContext onDragEnd={handleDragEnd}>
+                    <Droppable droppableId="todoList">
 
-            <ol className={styles.taskList}>
-                {sortedTodos.map((todo) => (
-                    <li key={todo.id} className={styles.taskItem}>
-                        {/* <Checkbox  color="success" onClick={() => handleMarkAsDone(todo.id)} /> */}
-                        {/* <FormControlLabel control={<Checkbox />} label="Label" /> */}
-                        <span className={todo.isDone ? styles.done : ""}> {todo.task} </span> 
-                        <hr />
+                        {(provided) => (
 
-                        <div  className={styles.taskButtons}>
-                            <Button className={styles.editBtn} variant="outlined" onClick={() => handleEdit(todo.id)}> 📝Edit</Button>
-                            <Button className={styles.dneBtn} variant="outlined" onClick={() => handleMarkAsDone(todo.id)}> ✅Done</Button>
-                            <Button className={styles.dltBtn} variant="outlined" onClick={() => handleDelete(todo.id)}> ❌Delete</Button>
+                            <ol className={styles.taskList} {...provided.droppableProps} ref={provided.innerRef}>
+                                {todos.map((todo, index) => ( 
+                                    
+                                    <Draggable key={todo.id} draggableId={todo.id.toString()} index={index}>
+                                        {(provided) => (
+                                            <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={styles.taskItem}>
+                                            
+                                                <FormControlLabel 
+                                                    control={<Checkbox  color="success" onChange={() => handleMarkAsDone(todo.id)} checked={todo.isDone} />}
+                                                    label={<span className={todo.isDone ? styles.done : ""}> {todo.task} </span> } 
+                                                />
+                                                
+                                                <hr />
 
-                        </div>
-                        
-                        
+                                                <div  className={styles.taskButtons}>
+                                                    <Button className={styles.editBtn} variant="outlined" onClick={() => handleEdit(todo.id)}> 📝Edit</Button>
+                                                    <Button className={styles.dltBtn} variant="outlined" onClick={() => handleDelete(todo.id)}> ❌Delete</Button>
 
-                        {/* Priority Selection Buttons */}
+                                                </div>
+                                                
+                                                
 
-                        <div className={styles.priorityBtns}>
-                            <Button 
-                                variant="contained" 
-                                style={{ color:" black", backgroundColor: todo.priority === "High" ? "red" : "white" }}
-                                onClick={() => handlePriorityChange(todo.id, "High")}
-                            >
-                                High
-                            </Button>
+                                                {/* Priority Selection Buttons */}
 
-                            <Button 
-                                variant="contained" 
-                                style={{ color:" black", backgroundColor: todo.priority === "Medium" ? "orange" : "white" }}
-                                onClick={() => handlePriorityChange(todo.id, "Medium")}
-                            >
-                                Medium
-                            </Button>
+                                                <div className={styles.priorityBtns}>
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color:" black", backgroundColor: todo.priority === "High" ? "red" : "white" }}
+                                                        onClick={() => handlePriorityChange(todo.id, "High")}
+                                                    >
+                                                        High
+                                                    </Button>
 
-                            <Button 
-                                variant="contained" 
-                                style={{ color:" black", backgroundColor: todo.priority === "Low" ? "green" : "white" }}
-                                onClick={() => handlePriorityChange(todo.id, "Low")}
-                            >
-                                Low
-                            </Button>
-                        </div>
-                    
-                    </li>
-                ))}
-            </ol>
-        </div>  
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color:" black", backgroundColor: todo.priority === "Medium" ? "orange" : "white" }}
+                                                        onClick={() => handlePriorityChange(todo.id, "Medium")}
+                                                    >
+                                                        Medium
+                                                    </Button>
+
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color:" black", backgroundColor: todo.priority === "Low" ? "green" : "white" }}
+                                                        onClick={() => handlePriorityChange(todo.id, "Low")}
+                                                    >
+                                                        Low
+                                                    </Button>
+                                                </div>
+
+                                                {/* Status Selection Buttons */}
+                                                <div className={styles.statusBtns}>
+
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color: "black", backgroundColor: todo.status === "in-progress" ? "#FFD700" : "white" }}
+                                                        onClick={() => handleStatusChange(todo.id, "in-progress")}
+                                                    >
+                                                        In-Progress
+                                                    </Button>
+
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color: "black", backgroundColor: todo.status === "todo" ? "#ADD8E6" : "white" }}
+                                                        onClick={() => handleStatusChange(todo.id, "todo")}
+                                                    >
+                                                        To-Do
+                                                    </Button>
+                                                
+                                                    <Button 
+                                                        variant="contained" 
+                                                        style={{ color: "black", backgroundColor: todo.status === "done" ? "#90EE90" : "white" }}
+                                                        onClick={() => handleStatusChange(todo.id, "done")}
+                                                    >
+                                                        Done
+                                                    </Button>
+                                                </div>
+                                        
+                                            </li>
+                                        )}
+                                        
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
+                            </ol>
+                        )}
+
+                    </Droppable>
+                </DragDropContext>
+            </div>  
+
+        <Footer/>
+        </>
     );
 }
