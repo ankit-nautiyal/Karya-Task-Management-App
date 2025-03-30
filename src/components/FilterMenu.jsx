@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateTodoOrder } from "../features/taskSlice.jsx";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-export default function FilterMenu({ todos, setFilteredTodos }) {
+export default function FilterMenu({ todos }) {
     const dispatch = useDispatch();
-    const [filterOption, setFilterOption] = useState("default");
+    const filterOption = useSelector(state => state.todo.filterOption); // Get from Redux
+
 
     const handleFilterChange = (event) => {
         const option = event.target.value;
-        setFilterOption(option);
+        dispatch(setFilterOption(option)); // Store filterOption in Redux
 
         let filteredList = [...todos];
 
@@ -40,7 +40,7 @@ export default function FilterMenu({ todos, setFilteredTodos }) {
                 filteredList = todos;
         }
 
-        setFilteredTodos(filteredList);
+        
         dispatch(updateTodoOrder(filteredList));
     };
 

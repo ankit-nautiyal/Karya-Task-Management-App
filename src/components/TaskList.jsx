@@ -1,11 +1,11 @@
 import { Button, Checkbox, FormControlLabel } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, markAsDone, editTodo, updateTodoOrder, addTodo, setStatus } from "../features/taskSlice.jsx";
+import { deleteTodo, markAsDone, editTodo, updateTodoOrder, addTodo, setStatus, setFilterOption } from "../features/taskSlice.jsx";
 import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import WeatherInfo from "./WeatherInfo.jsx";
 import { clearWeatherError } from "../features/weatherSlice.jsx";
 import { fetchWeather } from "../api/weatherAPI.js";
@@ -30,7 +30,38 @@ export default function TaskList(){
     const weatherError = useSelector((state) => state.weather?.error);  // Get weather error
     const dispatch= useDispatch();
     const [outdoorTaskDetected, setOutdoorTaskDetected] = useState(false);
+    const [filteredTodos, setFilteredTodos] = useState([]);
+    const filterOption = useSelector(state => state.todo.filterOption);
 
+
+    useEffect(() => {
+        let filteredList = [...todos];
+
+        switch (filterOption) {
+            case "latest-first":
+                filteredList.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                break;
+            case "oldest-first":
+                filteredList.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+                break;
+            case "high-low":
+                filteredList.sort((a, b) => (a.priority === "High" ? -1 : 1));
+                break;
+            case "low-high":
+                filteredList.sort((a, b) => (a.priority === "Low" ? -1 : 1));
+                break;
+
+            case "todo":
+            case "in-progress":
+            case "done":
+                filteredList = filteredList.filter(todo => todo.status === filterOption);
+                break;
+            default:
+                filteredList = todos;
+        }
+
+        setFilteredTodos(filteredList);
+    }, [todos, filterOption]);
 
     
     // To ennsure Redux store is in sync with localStorage when the app starts
@@ -94,25 +125,40 @@ export default function TaskList(){
     };
 
     //  Sorting tasks based on priority
-    const sortedTodos = useMemo(() => {
-        const priorityOrder = { High: 1, Medium: 2, Low: 3 };
-        return [...todos].sort((a, b) => (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4));
-    }, [todos]);  // Recomputes only when todos change
+    // const sortedTodos = useMemo(() => {
+    //     const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+    //     return [...todos].sort((a, b) => (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4));
+    // }, [todos]);  // Recomputes only when todos change
     
     
 
-    const handleDragEnd = useCallback((result) => {
-        if (!result.destination) return;  // If dropped outside, do nothing
+    // const handleDragEnd = useCallback((result) => {
+    //     if (!result.destination) return;  // If dropped outside, do nothing
     
-        const reorderedTodos = [...todos];
+    //     const reorderedTodos = [...todos];
+    //     const [movedTodo] = reorderedTodos.splice(result.source.index, 1);
+    //     reorderedTodos.splice(result.destination.index, 0, movedTodo);
+    
+    //     dispatch(updateTodoOrder(reorderedTodos)); // Update Redux store
+
+    //     // Persist the new order to localStorage
+    //     localStorage.setItem("todos", JSON.stringify(reorderedTodos));
+    // }, [todos, dispatch]);  // Only re-created if todos or dispatch changes
+
+
+    const handleDragEnd = useCallback((result) => {
+        if (!result.destination) return;
+    
+        const reorderedTodos = [...filteredTodos];
         const [movedTodo] = reorderedTodos.splice(result.source.index, 1);
         reorderedTodos.splice(result.destination.index, 0, movedTodo);
     
-        dispatch(updateTodoOrder(reorderedTodos)); // Update Redux store
+        setFilteredTodos(reorderedTodos);
+        dispatch(updateTodoOrder(reorderedTodos));
 
-        // Persist the new order to localStorage
         localStorage.setItem("todos", JSON.stringify(reorderedTodos));
-    }, [todos, dispatch]);  // Only re-created if todos or dispatch changes
+    }, [filteredTodos, dispatch]);
+    
 
     const handleStatusChange = (id, status) => {
         dispatch(setStatus({ id, status }));
@@ -122,7 +168,7 @@ export default function TaskList(){
 
     return(
         <>  
-            <Navbar/>
+            <Navbar todos={todos} />
             
             <div className={styles.taskListContainer}>
                 <TaskInput/>
@@ -135,7 +181,7 @@ export default function TaskList(){
                         {(provided) => (
 
                             <ol className={styles.taskList} {...provided.droppableProps} ref={provided.innerRef}>
-                                {todos.map((todo, index) => ( 
+                                {filteredTodos.map((todo, index) => ( 
                                     
                                     <Draggable key={todo.id} draggableId={todo.id.toString()} index={index}>
                                         {(provided) => (

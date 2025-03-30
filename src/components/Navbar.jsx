@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-export default function Navbar() {
+export default function Navbar({todos, setFilteredTodos}) {
 
     const navigate= useNavigate();
     const dispatch= useDispatch();
@@ -22,7 +22,7 @@ export default function Navbar() {
         <AppBar position="fixed"  >
             <Toolbar className={styles.navbar} sx={{justifyContent: isAuthenticated ? "space-between" : "center"}}>
 
-                {isAuthenticated && <FilterMenu className={styles.filterMenu}/>  }
+                {isAuthenticated && <FilterMenu todos={todos} className={styles.filterMenu}/>  }
                 
                 <Typography variant="h5" className={styles.navTitle}>
                     <img src="favicon.webp" alt="logo" />

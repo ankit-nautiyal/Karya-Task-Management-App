@@ -93,9 +93,13 @@ export const taskSlice= createSlice({
             }
             localStorage.setItem("todos", JSON.stringify(state.todos));
         },
+
+        setFilterOption: (state, action) => {
+            state.filterOption = action.payload;  
+        },
         
     }
 });
 
-export const {addTodo, deleteTodo, markAsDone, editTodo, setPriority, updateTodoOrder, setStatus} = taskSlice.actions;
+export const {addTodo, deleteTodo, markAsDone, editTodo, setPriority, updateTodoOrder, setStatus, setFilterOption} = taskSlice.actions;
 export default taskSlice.reducer;
