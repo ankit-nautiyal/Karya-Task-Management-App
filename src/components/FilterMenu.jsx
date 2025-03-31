@@ -89,7 +89,7 @@ export default function FilterMenu() {
                 onClick={handleOpenMainMenu}
                 sx={{ color: "white", backgroundColor: "#1976d2" }}
             >
-                Filter & Sort 
+                Filter/Sort 
             </Button>
 
             {/* Main Menu */}
