@@ -14,10 +14,10 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 - ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
 - ✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
 - ✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
-- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority. 
+- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority of tasks, & reset to default with reset button. 
 - ✔️ **Persisted State** – The task list & authentication status (mock authentication) persist across sessions using Redux & localStorage.  
 - ✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
-- ✔️ **Weather Alert for Outdoor Tasks** – Alerts by showing your current city's weather if an outdoor task is added to the to-do list.
+- ✔️ **Weather Alert for Outdoor Tasks**— This alerts the user by showing the current city's weather if an outdoor task is added to the to-do list.
 - ✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
 - ✔️ **Responsive Design** – Fully functional across all screen sizes.  
 
