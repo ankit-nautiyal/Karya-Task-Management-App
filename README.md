@@ -6,20 +6,20 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 
 ## 🚀 **Features**  
 
-✔️ **View Tasks** – Users can view all tasks in an ordered list. 
-✔️ **Add Tasks** – Users can input new tasks effortlessly.  
-✔️ **Mark as Done/Undo** – Check the task Checkbox or set status as "✅ Done" to mark a task as complete (strikethrough styling). Unchecking the checkbox/changing status again will undo the action.
+- ✔️ **View Tasks** – Users can view all tasks in an ordered list. 
+- ✔️ **Add Tasks** – Users can input new tasks effortlessly.  
+- ✔️ **Mark as Done/Undo** – Check the task Checkbox or set the status as '✅ Done' to mark a task as complete (strikethrough styling). Unchecking the checkbox/changing status again will undo the action.
 
-✔️ **Edit Tasks** – Users can edit the tasks in real time.  
-✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
-✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
-✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
-✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority. 
-✔️ **Persisted State** – The task list & authentication status (mock authentication) persist across sessions using Redux & localStorage.  
-✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
-✔️ **Weather Alert for Outdoor Tasks** – Alerts by showing your current city's weather if an outdoor task is added to the to-do list.
-✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
-✔️ **Responsive Design** – Fully functional across all screen sizes.  
+- ✔️ **Edit Tasks** – Users can edit the tasks in real time.  
+- ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
+- ✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
+- ✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
+- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority. 
+- ✔️ **Persisted State** – The task list & authentication status (mock authentication) persist across sessions using Redux & localStorage.  
+- ✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
+- ✔️ **Weather Alert for Outdoor Tasks** – Alerts by showing your current city's weather if an outdoor task is added to the to-do list.
+- ✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
+- ✔️ **Responsive Design** – Fully functional across all screen sizes.  
 
 ---
 
