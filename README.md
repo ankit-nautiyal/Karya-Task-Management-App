@@ -34,6 +34,41 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 ---
 ## 📷 **Project Snapshots** 
 
+![image](https://github.com/user-attachments/assets/49e288b2-d3eb-42d8-94a8-56eec8afb670)
+![image](https://github.com/user-attachments/assets/432b439d-3ac9-4d37-8ebd-f2328a452eae)
+![image](https://github.com/user-attachments/assets/bd0ca628-f6de-4c75-aea2-22036836df28)
+![image](https://github.com/user-attachments/assets/00298e5d-fbb5-43e5-af50-b4792f6d2c7e)
+![image](https://github.com/user-attachments/assets/a4ffca5a-3a9d-4c41-aeb6-f8b6b0bbd630)
+![image](https://github.com/user-attachments/assets/264e177c-1c2f-4cbf-a24f-7687c0938c89)
+![image](https://github.com/user-attachments/assets/492c26a8-03ee-49f4-9851-6bb869e98fd0)
+
+![image](https://github.com/user-attachments/assets/b40499e0-e1af-4fba-b365-49ecfe42b229)
+
+![image](https://github.com/user-attachments/assets/b00b767b-278d-4e4a-804f-40be798af0d7)
+
+![image](https://github.com/user-attachments/assets/116fd2bd-5aeb-4753-a003-c1dc2ebb3f76)
+
+![image](https://github.com/user-attachments/assets/a83f4734-c568-411d-bf76-d6401c110749)
+
+![image](https://github.com/user-attachments/assets/36dd0a05-1442-4fb2-a77f-99fce240f03f)
+
+![image](https://github.com/user-attachments/assets/4aff3a6f-2737-45be-b686-69f7010a92b4)
+
+![image](https://github.com/user-attachments/assets/a75ec1b3-adf3-46f8-baea-14da907215c6)
+
+![image](https://github.com/user-attachments/assets/a96797c3-b151-40b2-8518-6c6de770055a)
+
+![image](https://github.com/user-attachments/assets/49101c06-a772-46b4-8afe-10c6c68dc8bc)
+
+![image](https://github.com/user-attachments/assets/c4ebedbd-0550-49ce-be51-d81377d2fc91)
+
+![image](https://github.com/user-attachments/assets/c6d7db96-0328-43d4-bfc5-14a49913a10b)
+
+![image](https://github.com/user-attachments/assets/41f337af-66d2-4fed-8632-ffda060b33b6)
+
+![image](https://github.com/user-attachments/assets/aed1b63e-9055-455a-8c91-6fee9c1d4f1f)
+
+
 
 
 
