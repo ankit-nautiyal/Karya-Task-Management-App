@@ -14,10 +14,10 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 - ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
 - ✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
 - ✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
-- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority. 
+- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority of tasks, & reset to default with reset button. 
 - ✔️ **Persisted State** – The task list & authentication status (mock authentication) persist across sessions using Redux & localStorage.  
 - ✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
-- ✔️ **Weather Alert for Outdoor Tasks** – Alerts by showing your current city's weather if an outdoor task is added to the to-do list.
+- ✔️ **Weather Alert for Outdoor Tasks**— This alerts the user by showing the current city's weather if an outdoor task is added to the to-do list.
 - ✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
 - ✔️ **Responsive Design** – Fully functional across all screen sizes.  
 
@@ -81,7 +81,7 @@ This will start the application on `http://localhost:5173/`.
 
 ## 🏗️ **Folder Structure**  
 ```
-📂 task-manager-app/
+📂 task-management-app/
 ├── 📂 node_modules/          # Dependencies (auto-generated)
 ├── 📂 public/
 │   └── 📄 favicon.webp       # Website favicon
@@ -95,6 +95,11 @@ This will start the application on `http://localhost:5173/`.
 │   │   ├── 📄 TaskInput.jsx  # Input field for tasks
 │   │   ├── 📄 TaskList.jsx   # Task list display
 │   │   └── 📄 WeatherInfo.jsx # Weather info component
+│   │   ├── 📄 FilterMenu.jsx  # Filter & Sort button component
+│   │   ├── 📄 Footer.jsx      # Footer component 
+│   │   └── 📄 Navbar.jsx      # Navbar component 
+│   │   ├── 📄 PriorityMenu.jsx  # Priority dropdown menu component
+│   │   ├── 📄 Status Menu.jsx  # Status dropdown menu component
 │   ├── 📂 features/          # Redux slices (state management)
 │   │   ├── 📄 authSlice.jsx   # Authentication state
 │   │   ├── 📄 taskSlice.jsx   # Task state management
@@ -106,6 +111,9 @@ This will start the application on `http://localhost:5173/`.
 │   │   ├── 📄 Auth.module.css
 │   │   ├── 📄 TaskInput.module.css
 │   │   ├── 📄 TaskList.module.css
+│   │   ├── 📄 WeatherInfo.module.css
+│   │   ├── 📄 Navbar.module.css
+│   │   ├── 📄 Footer.module.css
 │   ├── 📄 App.css            # Global styles
 │   ├── 📄 App.jsx            # Root component
 │   ├── 📄 index.css          # Main CSS file
@@ -119,14 +127,6 @@ This will start the application on `http://localhost:5173/`.
 ├── 📄 README.md              # Project documentation
 └── 📄 vite.config.js         # Vite configuration
 ```
----
-
-## 📌 **Usage**  
-
-1. **Add a new task**: Type in the input field and press enter.  
-2. **Mark task as done**: Click the task to toggle strikethrough styling.  
-3. **Delete task**: Click the ❌ button to remove it.  
-4. **Check the weather**: Enter a city name and get real-time weather data.  
 
 ---
 
@@ -155,8 +155,7 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 🎯 **Future Improvements**  
-🔹 **Local Storage Integration** to persist tasks without Redux.  
+## 🎯 **Future Improvements**   
 🔹 **Dark Mode Toggle** for a better UX.  
 🔹 **Animations** for smoother transitions.  
 
