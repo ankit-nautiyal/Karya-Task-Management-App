@@ -1,4 +1,4 @@
-# **Task Manager App: An Advanced React To-Do Application with API Integration** 📝✅  
+# **Task Management App: An Advanced React To-Do Application with API Integration** 📝✅  
 
 A simple yet efficient **Task Manager App** built with **React.js** and **Redux Toolkit** for seamless task management. This project is designed with **state management**, **asynchronous API calls using Axios**, and a clean, responsive UI.  
 
@@ -39,7 +39,7 @@ Make sure you have the following installed:
 
 ### **Step 1: Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/task-manager-app.git
+git clone https://github.com/ankit-nautiyal/Task-Management-App.git
 cd task-manager-app
 ```
 
