@@ -26,7 +26,6 @@ export default function Navbar({}) {
     
 
     return (
-
         <AppBar position="fixed">
             <Toolbar
                 className={styles.navbar}

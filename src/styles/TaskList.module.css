@@ -29,7 +29,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    border: 1.5px solid purple;
+    border: 1.5px solid rgb(99, 24, 191);
 }
 
 .taskItem span {
