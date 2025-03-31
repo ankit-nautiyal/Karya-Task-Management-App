@@ -1,17 +1,25 @@
-# **Task Manager App: An Advanced React To-Do Application with API Integration** 📝✅  
+# **Task Management App📝: An Advanced React To-Do Application with API Integration** ✅  
 
-A simple yet efficient **Task Manager App** built with **React.js** and **Redux Toolkit** for seamless task management. This project is designed with **state management**, **asynchronous API calls using Axios**, and a clean, responsive UI.  
+A simple yet efficient **Task Manager App** built with **React.js** and **Redux Toolkit** for seamless task management. This project is designed with **state management**, **asynchronous API calls using Axios**, filter & sort options, a clean, responsive UI & more .
 
 ---  
 
 ## 🚀 **Features**  
 
-✔️ **Add Tasks** – Users can input new tasks effortlessly.  
-✔️ **Mark as Done/Undo** – Click to mark a task as complete (strikethrough styling). Clicking again will undo the action.  
-✔️ **Delete Tasks** – Remove tasks from the list with a single click.  
-✔️ **Persisted State** – The task list persists across sessions using Redux.  
-✔️ **Weather API Integration** – Fetches real-time weather data using Axios.  
-✔️ **Responsive Design** – Fully functional across all screen sizes.  
+- ✔️ **View Tasks** – Users can view all tasks in an ordered list. 
+- ✔️ **Add Tasks** – Users can input new tasks effortlessly.  
+- ✔️ **Mark as Done/Undo** – Check the task Checkbox or set the status as '✅ Done' to mark a task as complete (strikethrough styling). Unchecking the checkbox/changing status again will undo the action.
+
+- ✔️ **Edit Tasks** – Users can edit the tasks in real time.  
+- ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
+- ✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
+- ✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
+- ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority. 
+- ✔️ **Persisted State** – The task list & authentication status (mock authentication) persist across sessions using Redux & localStorage.  
+- ✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
+- ✔️ **Weather Alert for Outdoor Tasks** – Alerts by showing your current city's weather if an outdoor task is added to the to-do list.
+- ✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
+- ✔️ **Responsive Design** – Fully functional across all screen sizes.  
 
 ---
 
@@ -39,7 +47,7 @@ Make sure you have the following installed:
 
 ### **Step 1: Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/task-manager-app.git
+git clone https://github.com/ankit-nautiyal/Task-Management-App.git
 cd task-manager-app
 ```
 
