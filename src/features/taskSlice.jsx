@@ -15,6 +15,7 @@ const loadTodosFromStorage = () => {
 // Initial state now loads from localStorage and ensures `todos` array is correctly formatted
 const initialState = {
     todos: loadTodosFromStorage(),
+    filterOption: "default", // Default filter option
 };
 
 
@@ -45,6 +46,7 @@ export const taskSlice= createSlice({
             const todo = state.todos.find((todo) => todo.id === action.payload);
             if (todo) {
                 todo.isDone = !todo.isDone;  // Toggle true/false
+                todo.status = todo.isDone ? "done" : "todo"; // Sync status
                 localStorage.setItem("todos", JSON.stringify(state.todos)); // Update localStorage
             }
             
@@ -90,6 +92,7 @@ export const taskSlice= createSlice({
             const todo = state.todos.find(todo => todo.id === id);
             if (todo) {
                 todo.status = status;
+                todo.isDone = status === "done" ? true : false;  // Sync isDone with status
             }
             localStorage.setItem("todos", JSON.stringify(state.todos));
         },

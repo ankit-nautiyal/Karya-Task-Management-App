@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-export default function Navbar({todos, setFilteredTodos}) {
+export default function Navbar({todos}) {
 
     const navigate= useNavigate();
     const dispatch= useDispatch();

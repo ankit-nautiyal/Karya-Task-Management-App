@@ -43,10 +43,25 @@ export default function TaskList(){
                 filteredList.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
                 break;
             case "high-low":
-                filteredList.sort((a, b) => (a.priority === "High" ? -1 : 1));
+                filteredList.sort((a, b) => {
+                    const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+                    return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
+                });
                 break;
             case "low-high":
-                filteredList.sort((a, b) => (a.priority === "Low" ? -1 : 1));
+                filteredList.sort((a, b) => {
+                    const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+                    return (priorityOrder[b.priority] || 4) - (priorityOrder[a.priority] || 4);
+                });
+                break;
+            case "high":
+                filteredList = filteredList.filter((todo) => todo.priority === "High");
+                break;
+            case "medium":
+                filteredList = filteredList.filter((todo) => todo.priority === "Medium");
+                break;
+            case "low":
+                filteredList = filteredList.filter((todo) => todo.priority === "Low");
                 break;
 
             case "todo":
@@ -70,7 +85,7 @@ export default function TaskList(){
                 JSON.parse(savedTodos).forEach(todo => dispatch(addTodo(todo.task)));
             }
         }
-    }, []);  // Runs only once on first render
+    }, [dispatch]);  
 
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
@@ -109,7 +124,7 @@ export default function TaskList(){
 
 
     const handleMarkAsDone= (id)=>{
-        dispatch(markAsDone(id));
+        dispatch(markAsDone(id));   // This will toggle isDone and sync status
     }
 
 
@@ -122,44 +137,24 @@ export default function TaskList(){
         dispatch(setPriority({ id, priority }));
     };
 
-    //  Sorting tasks based on priority
-    // const sortedTodos = useMemo(() => {
-    //     const priorityOrder = { High: 1, Medium: 2, Low: 3 };
-    //     return [...todos].sort((a, b) => (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4));
-    // }, [todos]);  // Recomputes only when todos change
-    
-    
-
-    // const handleDragEnd = useCallback((result) => {
-    //     if (!result.destination) return;  // If dropped outside, do nothing
-    
-    //     const reorderedTodos = [...todos];
-    //     const [movedTodo] = reorderedTodos.splice(result.source.index, 1);
-    //     reorderedTodos.splice(result.destination.index, 0, movedTodo);
-    
-    //     dispatch(updateTodoOrder(reorderedTodos)); // Update Redux store
-
-    //     // Persist the new order to localStorage
-    //     localStorage.setItem("todos", JSON.stringify(reorderedTodos));
-    // }, [todos, dispatch]);  // Only re-created if todos or dispatch changes
 
 
     const handleDragEnd = useCallback((result) => {
         if (!result.destination) return;
     
-        const reorderedTodos = [...filteredTodos];
+        const reorderedTodos = [...todos];
         const [movedTodo] = reorderedTodos.splice(result.source.index, 1);
         reorderedTodos.splice(result.destination.index, 0, movedTodo);
     
         setFilteredTodos(reorderedTodos);
         dispatch(updateTodoOrder(reorderedTodos));
 
-        localStorage.setItem("todos", JSON.stringify(reorderedTodos));
-    }, [filteredTodos, dispatch]);
+        // localStorage.setItem("todos", JSON.stringify(reorderedTodos));
+    }, [todos, dispatch]);
     
 
     const handleStatusChange = (id, status) => {
-        dispatch(setStatus({ id, status }));
+        dispatch(setStatus({ id, status }));    // This will update status and sync isDone
     };
     
     
