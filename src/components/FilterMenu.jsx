@@ -65,7 +65,6 @@ export default function FilterMenu() {
             label: "Date",
             key: "date",
             options: [
-                { value: "default", label: "Default Order" },
                 { value: "oldest-first", label: "Oldest First" },
                 { value: "latest-first", label: "Newest First" },
             ],

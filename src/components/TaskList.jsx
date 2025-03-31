@@ -69,8 +69,9 @@ export default function TaskList(){
             case "done":
                 filteredList = filteredList.filter(todo => todo.status === filterOption);
                 break;
+            case "": // Reset case
             default:
-                filteredList = todos;
+                filteredList = todos; // Show original order, by default
         }
 
         setFilteredTodos(filteredList);
@@ -102,7 +103,7 @@ export default function TaskList(){
             outdoorKeywords.some(keyword => todo.task.toLowerCase().includes(keyword))
         );
 
-        console.log("Has Outdoor Task:", hasOutdoorTask);
+
 
         if (hasOutdoorTask && city) {
             console.log(`Fetching weather for city: ${city}`); // Debugging log
