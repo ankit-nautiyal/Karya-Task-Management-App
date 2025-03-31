@@ -81,7 +81,7 @@ This will start the application on `http://localhost:5173/`.
 
 ## 🏗️ **Folder Structure**  
 ```
-📂 task-manager-app/
+📂 task-management-app/
 ├── 📂 node_modules/          # Dependencies (auto-generated)
 ├── 📂 public/
 │   └── 📄 favicon.webp       # Website favicon
@@ -95,6 +95,11 @@ This will start the application on `http://localhost:5173/`.
 │   │   ├── 📄 TaskInput.jsx  # Input field for tasks
 │   │   ├── 📄 TaskList.jsx   # Task list display
 │   │   └── 📄 WeatherInfo.jsx # Weather info component
+│   │   ├── 📄 FilterMenu.jsx  # Filter & Sort button component
+│   │   ├── 📄 Footer.jsx      # Footer component 
+│   │   └── 📄 Navbar.jsx      # Navbar component 
+│   │   ├── 📄 PriorityMenu.jsx  # Priority dropdown menu component
+│   │   ├── 📄 Status Menu.jsx  # Status dropdown menu component
 │   ├── 📂 features/          # Redux slices (state management)
 │   │   ├── 📄 authSlice.jsx   # Authentication state
 │   │   ├── 📄 taskSlice.jsx   # Task state management
@@ -106,6 +111,9 @@ This will start the application on `http://localhost:5173/`.
 │   │   ├── 📄 Auth.module.css
 │   │   ├── 📄 TaskInput.module.css
 │   │   ├── 📄 TaskList.module.css
+│   │   ├── 📄 WeatherInfo.module.css
+│   │   ├── 📄 Navbar.module.css
+│   │   ├── 📄 Footer.module.css
 │   ├── 📄 App.css            # Global styles
 │   ├── 📄 App.jsx            # Root component
 │   ├── 📄 index.css          # Main CSS file
@@ -119,14 +127,6 @@ This will start the application on `http://localhost:5173/`.
 ├── 📄 README.md              # Project documentation
 └── 📄 vite.config.js         # Vite configuration
 ```
----
-
-## 📌 **Usage**  
-
-1. **Add a new task**: Type in the input field and press enter.  
-2. **Mark task as done**: Click the task to toggle strikethrough styling.  
-3. **Delete task**: Click the ❌ button to remove it.  
-4. **Check the weather**: Enter a city name and get real-time weather data.  
 
 ---
 
@@ -155,8 +155,7 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 🎯 **Future Improvements**  
-🔹 **Local Storage Integration** to persist tasks without Redux.  
+## 🎯 **Future Improvements**   
 🔹 **Dark Mode Toggle** for a better UX.  
 🔹 **Animations** for smoother transitions.  
 
