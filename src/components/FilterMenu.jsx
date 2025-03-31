@@ -40,7 +40,6 @@ export default function FilterMenu({ todos }) {
                 filteredList = todos;
         }
 
-        
         dispatch(updateTodoOrder(filteredList));
     };
 

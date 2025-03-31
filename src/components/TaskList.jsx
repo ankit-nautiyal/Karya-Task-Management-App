@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, markAsDone, editTodo, updateTodoOrder, addTodo, setStatus, setFilterOption } from "../features/taskSlice.jsx";
 import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
-import Navbar from "./Navbar.jsx";
-import Footer from "./Footer.jsx";
 import { useEffect, useState, useCallback } from "react";
 import WeatherInfo from "./WeatherInfo.jsx";
 import { clearWeatherError } from "../features/weatherSlice.jsx";
@@ -168,7 +166,7 @@ export default function TaskList(){
 
     return(
         <>  
-            <Navbar todos={todos} />
+            
             
             <div className={styles.taskListContainer}>
                 <TaskInput/>
@@ -229,9 +227,10 @@ export default function TaskList(){
 
                     </Droppable>
                 </DragDropContext>
+            
             </div>  
 
-        <Footer/>
+        
         </>
     );
 }
