@@ -76,8 +76,8 @@ export default function FilterMenu() {
                 { value: "high", label: "🔴 High" },
                 { value: "medium", label: "🟡 Medium" },
                 { value: "low", label: "🟢 Low" },
-                { value: "high-low", label: "High to Low" },
-                { value: "low-high", label: "Low to High" },
+                { value: "high-low", label: "📉 High to Low" },
+                { value: "low-high", label: "📈 Low to High" },
             ],
         },
     ];
