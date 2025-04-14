@@ -1,19 +1,25 @@
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box, IconButton } from "@mui/material";
 import styles from "../styles/Navbar.module.css";
 import FilterMenu from "./FilterMenu.jsx"; 
 import { logout } from "../features/authSlice.jsx";
+import { toggleTheme } from "../features/themeSlice.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import { setFilterOption } from "../features/taskSlice.jsx";
 import { toast } from "react-toastify";
+
+
 
 export default function Navbar({}) {
     
     const navigate= useNavigate();
     const dispatch= useDispatch();
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const themeMode = useSelector((state) => state.theme.mode);
     
     const handleLogout = () => {
         dispatch(logout());
@@ -25,6 +31,9 @@ export default function Navbar({}) {
         dispatch(setFilterOption("")); // Reset filterOption to empty string
     };
 
+    const handleThemeToggle = () => {
+        dispatch(toggleTheme());
+    };
     
 
     return (
@@ -33,20 +42,20 @@ export default function Navbar({}) {
                 className={styles.navbar}
                 sx={{
                     justifyContent: isAuthenticated ? "space-between" : "center",
-                    flexWrap: "wrap", // Allow wrapping for responsiveness
-                    gap: 2, // Add spacing between elements
-                    paddingY: { xs: 1, sm: 0 }, // Extra padding on small screens
+                    flexWrap: "wrap", 
+                    gap: 2, 
+                    paddingY: { xs: 1, sm: 0 }, 
                 }}
             >
                 {isAuthenticated && (
                     <Box
                         sx={{
                             display: "flex",
-                            flexWrap: "wrap", // Allow wrapping within this Box
+                            flexWrap: "wrap", 
                             alignItems: "center",
-                            gap: { xs: 1, sm: 2 }, // Smaller gap on extra-small screens
-                            flexDirection: { xs: "column", sm: "row" }, // Stack vertically on xs, row on sm+
-                            width: { xs: "100%", sm: "auto" }, // Full width on small screens
+                            gap: { xs: 1, sm: 2 }, 
+                            flexDirection: { xs: "column", sm: "row" }, 
+                            width: { xs: "100%", sm: "auto" }, 
                         }}
                     >
                         <FilterMenu />
@@ -55,8 +64,8 @@ export default function Navbar({}) {
                             sx={{
                                 color: "white",
                                 borderColor: "white",
-                                fontSize: { xs: "10px", sm: "12px" }, // Slightly larger on sm+
-                                padding: { xs: "4px 8px", sm: "6px 16px" }, // Responsive padding
+                                fontSize: { xs: "10px", sm: "12px" }, 
+                                padding: { xs: "4px 8px", sm: "6px 16px" },
                                 minWidth: "auto", // Allow natural width
                             }}
                             onClick={handleResetFilter}
@@ -72,16 +81,32 @@ export default function Navbar({}) {
                     Task Management App
                 </Typography>
 
-                {isAuthenticated && (
-                    <Button
-                        className={styles.logoutBtn}
-                        onClick={handleLogout}
-                        sx={{ fontSize: { xs: "10px", sm: "14px" } }} // Responsive font size
-                    >
-                        <LogoutIcon sx={{ marginRight: "5px", height: "15px", width: "15px" }} />
-                        Logout
-                    </Button>
-                )}
+                
+                    <Box className={styles.rightButtons}>
+                        <IconButton
+                            className={styles.themeBtn}
+                            onClick={handleThemeToggle}
+                            color="inherit"
+                            >
+                            {themeMode === "dark" ? (
+                                <LightModeOutlinedIcon sx={{ height: "20px", width: "20px" }} />
+                            ) : (
+                                <DarkModeOutlinedIcon sx={{ height: "20px", width: "20px" }} />
+                            )}
+                        </IconButton>
+                        
+                        {isAuthenticated && (
+                            <Button
+                                className={styles.logoutBtn}
+                                onClick={handleLogout}
+                                sx={{ fontSize: { xs: "10px", sm: "14px" } }} 
+                            >
+                                <LogoutIcon sx={{ height: "15px", width: "15px" }} />
+                                Logout
+                            </Button>
+                        )}
+                    </Box>
+                
             </Toolbar>
         </AppBar>
     );

@@ -1,6 +1,6 @@
-import { Button, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, markAsDone, editTodo, updateTodoOrder, addTodo, setStatus, setFilterOption } from "../features/taskSlice.jsx";
+import { deleteTodo, deleteAll, markAsDone, markAllAsDone, editTodo, updateTodoOrder, addTodo, setStatus, setFilterOption } from "../features/taskSlice.jsx";
 import { setPriority } from "../features/taskSlice.jsx";
 import TaskInput from "./TaskInput.jsx";
 import { useEffect, useState, useCallback } from "react";
@@ -160,16 +160,77 @@ export default function TaskList(){
     const handleStatusChange = (id, status) => {
         dispatch(setStatus({ id, status }));    // This will update status and sync isDone
     };
+
+    const handleDeleteAll = () => {
+        if (todos.length === 0) {
+            toast.info("No tasks to delete!");
+            return;
+        }
+        if (confirm("Are you sure you want to delete all tasks? This cannot be undone.")) {
+            dispatch(deleteAll());
+            toast.success("All tasks deleted successfully!");
+        }
+    };
+
+    const handleMarkAllAsDone = () => {
+        if (todos.length === 0) {
+            toast.info("No tasks to mark as done!");
+            return;
+        }
+        if (confirm("Are you sure you want to mark all tasks as done?")) {
+            dispatch(markAllAsDone());
+            toast.success("All tasks marked as done!");
+        }
+    };
     
     
 
     return(
-        <>  
-            
+        <> 
             
             <div className={styles.taskListContainer}>
                 <TaskInput/>
+                
+                {isAuthenticated && (
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 2,
+                            mb: 2,
+                            justifyContent: "flex-start",
+                        }}
+                    >
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                color: "red",
+                                borderColor: "red",
+                                borderRadius: "15px",
+                                fontSize: "10px",
+                                padding: "4px 8px",
+                            }}
+                            onClick={handleDeleteAll}
+                        >
+                            <DeleteIcon sx={{ height: "15px", width: "15px", mr: 0.5 }} />
+                            Delete All
+                        </Button>
 
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                color: "green",
+                                borderColor: "green",
+                                borderRadius: "15px",
+                                fontSize: "10px",
+                                padding: "4px 8px",
+                            }}
+                            onClick={handleMarkAllAsDone}
+                        >
+                    
+                            ✅ Mark All As Done
+                        </Button>
+                    </Box>
+                )}
                 {outdoorTaskDetected && weather && <WeatherInfo weather={weather} error={weatherError && "Invalid city name!"} />}
 
                 <DragDropContext onDragEnd={handleDragEnd}>

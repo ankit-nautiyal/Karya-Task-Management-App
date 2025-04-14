@@ -27,10 +27,12 @@
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    font-size: 12px;
 }
 
+
 .taskForm button:hover {
-    background-color: #218838;
+    background-color: #533db2;
 }
 
 /* Responsive Design */

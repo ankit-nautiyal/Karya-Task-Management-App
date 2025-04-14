@@ -5,7 +5,7 @@ export default function PriorityMenu({ priority, onChange }) {
         <FormControl size="small" sx={{ minWidth: 120,  }}>
             <InputLabel>Priority</InputLabel>
 
-            <Select value={priority ?? ""} onChange={(e) => onChange(e.target.value)} sx={{borderRadius: '50px', fontSize: '14px'}} >
+            <Select value={priority ?? ""} onChange={(e) => onChange(e.target.value)} sx={{borderRadius: '50px', fontSize: '14px', color: 'black'}} >
                 <MenuItem value="High" >🔴 High</MenuItem>
                 <MenuItem value="Medium">🟡 Medium</MenuItem>
                 <MenuItem value="Low">🟢 Low</MenuItem>

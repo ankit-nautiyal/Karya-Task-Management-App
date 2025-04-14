@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../features/authSlice.jsx";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
@@ -14,6 +14,7 @@ const Auth = () => {
     const [username, setUsername] = useState("");
     const [city, setCity] = useState("");  // Store user's city
     const [error, setError] = useState(false);
+    const themeMode = useSelector((state) => state.theme.mode);
 
 
     const dispatch = useDispatch();
@@ -47,8 +48,21 @@ const Auth = () => {
                 <h2 className={styles.authTitle}>Login into Task Management App</h2>
                 
                 <div className={styles.authForm}>
-                    <TextField  label="Username" onChange={(e) => setUsername(e.target.value)} required error={error} onKeyDown={handleEnter}/>
-                    <TextField  label="City" onChange={(e) => setCity(e.target.value)} required error={error} onKeyDown={handleEnter} />
+                    <TextField  
+                        label="Username" 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        required error={error} 
+                        onKeyDown={handleEnter}
+                        sx={{color: "black"}}
+                    />
+
+                    <TextField  
+                        label="City" 
+                        onChange={(e) => setCity(e.target.value)} 
+                        required error={error} 
+                        onKeyDown={handleEnter} 
+                    />
+
                     <Button  variant="contained" onClick={handleLogin}>
                         <LoginIcon sx={{marginRight: '5px'}}/>
                         Login

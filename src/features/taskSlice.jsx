@@ -100,9 +100,23 @@ export const taskSlice= createSlice({
         setFilterOption: (state, action) => {
             state.filterOption = action.payload;  
         },
+
+        deleteAll: (state) => {
+            state.todos = [];
+            localStorage.setItem("todos", JSON.stringify(state.todos));
+        },
+
+        markAllAsDone: (state) => {
+            state.todos = state.todos.map((todo) => ({
+                ...todo,
+                isDone: true,
+                status: "done",
+            }));
+            localStorage.setItem("todos", JSON.stringify(state.todos));
+        },
         
     }
 });
 
-export const {addTodo, deleteTodo, markAsDone, editTodo, setPriority, updateTodoOrder, setStatus, setFilterOption} = taskSlice.actions;
+export const {addTodo, deleteTodo, deleteAll, markAsDone, markAllAsDone, editTodo, setPriority, updateTodoOrder, setStatus, setFilterOption} = taskSlice.actions;
 export default taskSlice.reducer;

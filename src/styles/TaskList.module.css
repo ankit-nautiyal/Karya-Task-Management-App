@@ -68,7 +68,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* gap: 5px; */
+    color: black;
 }
 
 
@@ -83,6 +83,11 @@
     top: 0;
     right: 0;
     margin: 15px;
+}
+
+.todoMenus span{
+    color: black;
+    
 }
 
 /* Responsive Design */

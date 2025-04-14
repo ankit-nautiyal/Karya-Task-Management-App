@@ -7,9 +7,9 @@ export default function StatusMenu({ status, onChange }) {
             <Select
                 value={status}
                 onChange={(e) => onChange(e.target.value)}
-                sx={{borderRadius: '50px', fontSize: '14px'}}
-        
+                sx={{borderRadius: '50px', fontSize: '14px', color: 'black'}}
             >
+
                 <MenuItem value="todo">📌 To-Do</MenuItem>
                 <MenuItem value="in-progress">⚙️ In-Progress</MenuItem>
                 <MenuItem value="done">✅ Done</MenuItem>

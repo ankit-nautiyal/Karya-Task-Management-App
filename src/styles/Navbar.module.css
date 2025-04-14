@@ -7,10 +7,12 @@
     /* margin-bottom: 20px; */
 }
 
+/* Heading */
 .navTitle {
     text-align: center;
     font-size: 50px;
     font-weight: bold;
+    flex-grow: 1;
 }
 
 .navTitle img{
