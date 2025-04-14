@@ -11,7 +11,9 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 - ✔️ **Mark as Done/Undo** – Check the task Checkbox or set the status as '✅ Done' to mark a task as complete (strikethrough styling). Unchecking the checkbox/changing status again will undo the action.
 
 - ✔️ **Edit Tasks** – Users can edit the tasks in real time.  
-- ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting). 
+- ✔️ **Delete Tasks** – Users can remove tasks from the list with a single click (the app confirms before deleting).
+- ✔️ **Delete All Tasks** – Users can delete all the tasks at once.
+- ✔️ **Delete All Tasks** – Users can mark all the tasks as done at once. 
 - ✔️ **Tasks Priority** – Users can mark tasks as '🔴 High', '🟡 Medium' & '🟢 Low' for specifying their priority.  
 - ✔️ **Tasks Status** – Users can mark tasks as '📌 To-Do', '⚙️ In-Progress' & '✅ Done' for specifying their completion status. 
 - ✔️ **Filter & Sort** – Users can filter & sort as per their status, date/time of creation & priority of tasks, & reset to default with reset button. 
@@ -19,7 +21,8 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 - ✔️ **Weather API Integration** – Fetches real-time weather data from OpenWeather API using Axios.  
 - ✔️ **Weather Alert for Outdoor Tasks**— This alerts the user by showing the current city's weather if an outdoor task is added to the to-do list.
 - ✔️ **Drag & Drop Tasks** – Drag and drop functionality to reorder the tasks.
-- ✔️ **Responsive Design** – Fully functional across all screen sizes.  
+- ✔️ **Responsive Design** – Fully functional across all screen sizes.
+- ✔️ **Theme Toggle** – Theme toggle button (dark/light).   
 
 ---
 
