@@ -13,6 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PriorityMenu from "./PriorityMenu.jsx";
 import StatusMenu from "./StatusMenu.jsx";
+import { toast } from "react-toastify";
 
 
 
@@ -118,6 +119,7 @@ export default function TaskList(){
     const handleDelete = useCallback((id) => {
         if (confirm("Do you really want to delete this task?")) {
             dispatch(deleteTodo(id));
+            toast.success("Task deleted successfully!");
         }
     }, [dispatch]);  // Only changes if dispatch changes
     
@@ -131,6 +133,7 @@ export default function TaskList(){
 
     const handleEdit= (id) =>{
         dispatch(editTodo(id));
+        toast.success("Task edited successfully!");
     }
 
 

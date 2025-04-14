@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import { setFilterOption } from "../features/taskSlice.jsx";
+import { toast } from "react-toastify";
 
 export default function Navbar({}) {
     
@@ -16,6 +17,7 @@ export default function Navbar({}) {
     
     const handleLogout = () => {
         dispatch(logout());
+        toast.success("Logged out successfully!");
         navigate("/auth");
     };
 

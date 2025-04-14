@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchWeather } from "../api/weatherAPI";
 
 
-
 const initialState= {
     data: null,  //  Set to null initially to avoid undefined errors
     status: "idle",

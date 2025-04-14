@@ -29,7 +29,7 @@ export const taskSlice= createSlice({
                 id: nanoid(),
                 task: action.payload,
                 isDone: false, 
-                priority: null,  // Default no priority (white button)
+                priority: "",  // Default no priority (white button)
                 status: "todo",  // Default status is "To-Do"
                 createdAt: new Date().toISOString() // Store timestamp
             }

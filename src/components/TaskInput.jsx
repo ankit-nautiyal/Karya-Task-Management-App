@@ -5,6 +5,7 @@ import {addTodo} from "../features/taskSlice"
 import { TextField } from '@mui/material';
 import styles from '../styles/TaskInput.module.css';
 import AddIcon from '@mui/icons-material/Add';
+import { toast } from "react-toastify";
 
 
 export default function TaskInput(){
@@ -17,7 +18,7 @@ export default function TaskInput(){
             dispatch(addTodo(task));
             setTask("");
         } else {
-            alert("Task cannot be empty!");
+            toast.error("Task cannot be empty!");
         }
     }
 

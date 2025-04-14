@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../features/authSlice.jsx";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import styles from '../styles/Auth.module.css';
 import LoginIcon from '@mui/icons-material/Login';
+import { toast } from "react-toastify";
 
 
 const Auth = () => {
@@ -21,10 +22,12 @@ const Auth = () => {
     const handleLogin = () => {
         if (!city || !username){
             setError(true); // Show error if city is empty
+            toast.error("Please fill all the details!");
             return;
-        };  // Ensure city is provided
+        }; 
         
         dispatch(login({city, username}));
+        toast.success("Logged in successfully!");
         navigate("/");
     };
 
