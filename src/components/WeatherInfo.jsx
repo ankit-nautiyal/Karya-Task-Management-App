@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styles from "../styles/WeatherInfo.module.css"
+import { toast } from "react-toastify";
 
 export default function WeatherInfo({ weather, error }) {
 
@@ -19,7 +20,10 @@ export default function WeatherInfo({ weather, error }) {
             <h3>🌤️ Outdoor Task Alert⚠️ - Weather in {city}</h3>
         
             {error ? (
-                <p style={{ color: "red" }}><strong>Error:</strong> {error}</p>
+                <>
+                    <p style={{ color: "red" }}><strong>Error:</strong> {error}</p>
+                    {/* {toast.error("Invalid city name!")} */}
+                </>
             ) : weather ? (
                 <>
                     <p><strong>Temperature:</strong> {weather.main.temp}°C</p>
