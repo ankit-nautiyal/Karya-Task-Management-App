@@ -7,7 +7,12 @@ import { ToastContainer } from "react-toastify";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
+
 function App() {
+  return <AppRoutes />;
+}
+
+function AppRoutes() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const themeMode = useSelector((state) => state.theme.mode);
 
