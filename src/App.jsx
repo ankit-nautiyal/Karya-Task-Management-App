@@ -1,17 +1,12 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { Provider, useSelector } from "react-redux";
-import { store } from './app/store.js';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from './pages/home.jsx';
 import Auth from './pages/auth.jsx';
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
         <AppRoutes />
-      </Router>
-    </Provider>
   );
 }
 
