@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <Box component="footer" className={styles.footer}>
                     
-            <Typography >© 2025 <img src="favicon.webp" alt="logo" /> Task Management App</Typography>
+            <Typography >© 2025 <img src="favicon.webp" alt="logo" /> Karya - Task Management App</Typography>
         </Box>
     );
 }

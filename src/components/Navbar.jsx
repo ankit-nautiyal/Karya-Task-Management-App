@@ -78,7 +78,7 @@ export default function Navbar({}) {
 
                 <Typography variant="h5" className={styles.navTitle} sx={{ flexShrink: 0 }}>
                     <img src="favicon.webp" alt="logo" />
-                    Task Management App
+                    Karya
                 </Typography>
 
                 
