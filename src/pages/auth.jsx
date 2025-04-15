@@ -45,7 +45,7 @@ const Auth = () => {
             <Navbar/>
 
             <div className={styles.authContainer}>
-                <h2 className={styles.authTitle}>Login into Task Management App</h2>
+                <h2 className={styles.authTitle}>Login into   <img src="favicon.webp" alt="logo" />Karya</h2>
                 
                 <div className={styles.authForm}>
                     <TextField  

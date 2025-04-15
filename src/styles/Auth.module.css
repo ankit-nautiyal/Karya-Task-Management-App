@@ -15,6 +15,13 @@
     color: #333;
 }
 
+.authTitle img{
+    height: 20px;
+    width: 20px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
 .authForm {
     display: flex;
     flex-direction: column;
