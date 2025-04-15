@@ -60,13 +60,6 @@ A simple yet efficient **Task Management App** built with **React.js** and **Red
 
 
 
-
-
-
-
-
-
-
 ---
 ## 🏗️ **Setup & Installation**  
 
@@ -77,7 +70,7 @@ Make sure you have the following installed:
 
 ### **Step 1: Clone the Repository**  
 ```bash
-git clone https://github.com/ankit-nautiyal/Task-Management-App.git
+git clone https://github.com/ankit-nautiyal/Karya-Task-Management-App.git
 cd task-manager-app
 ```
 
@@ -180,13 +173,8 @@ netlify deploy --prod
 
 ---
 
-## 📜 **License**  
-This project is licensed under the **MIT License**.
-
----
-
 ## 🎯 **Future Improvements**   
-🔹 **Dark Mode Toggle** for a better UX.  
+🔹 **Backend & database integration** for converting it into a full-stack application.  
 🔹 **Animations** for smoother transitions.  
 
 ---
