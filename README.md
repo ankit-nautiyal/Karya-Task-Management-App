@@ -37,54 +37,29 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 ---
 ## 📷 **Project Snapshots** 
 
-![image](https://github.com/user-attachments/assets/49e288b2-d3eb-42d8-94a8-56eec8afb670)
-
-![image](https://github.com/user-attachments/assets/34cf0fa3-8016-440d-bb7b-2b4ccc85806e)
-
-![image](https://github.com/user-attachments/assets/943831c6-175e-4d72-a232-a7b6df9437c3)
-
-![image](https://github.com/user-attachments/assets/432b439d-3ac9-4d37-8ebd-f2328a452eae)
-![image](https://github.com/user-attachments/assets/bd0ca628-f6de-4c75-aea2-22036836df28)
-![image](https://github.com/user-attachments/assets/00298e5d-fbb5-43e5-af50-b4792f6d2c7e)
-![image](https://github.com/user-attachments/assets/a4ffca5a-3a9d-4c41-aeb6-f8b6b0bbd630)
-
-![image](https://github.com/user-attachments/assets/978baef7-fe13-4a6c-ba13-29b76943fcc6)
-
-![image](https://github.com/user-attachments/assets/264e177c-1c2f-4cbf-a24f-7687c0938c89)
-![image](https://github.com/user-attachments/assets/492c26a8-03ee-49f4-9851-6bb869e98fd0)
-
-![image](https://github.com/user-attachments/assets/b40499e0-e1af-4fba-b365-49ecfe42b229)
-
-![image](https://github.com/user-attachments/assets/b00b767b-278d-4e4a-804f-40be798af0d7)
-
-![image](https://github.com/user-attachments/assets/116fd2bd-5aeb-4753-a003-c1dc2ebb3f76)
-
-![image](https://github.com/user-attachments/assets/a83f4734-c568-411d-bf76-d6401c110749)
-
-![image](https://github.com/user-attachments/assets/36dd0a05-1442-4fb2-a77f-99fce240f03f)
-
-![image](https://github.com/user-attachments/assets/4aff3a6f-2737-45be-b686-69f7010a92b4)
-
-![image](https://github.com/user-attachments/assets/a75ec1b3-adf3-46f8-baea-14da907215c6)
-
-![image](https://github.com/user-attachments/assets/a96797c3-b151-40b2-8518-6c6de770055a)
-
-![image](https://github.com/user-attachments/assets/49101c06-a772-46b4-8afe-10c6c68dc8bc)
-
-![image](https://github.com/user-attachments/assets/c4ebedbd-0550-49ce-be51-d81377d2fc91)
-
-![image](https://github.com/user-attachments/assets/c6d7db96-0328-43d4-bfc5-14a49913a10b)
-
-![image](https://github.com/user-attachments/assets/41f337af-66d2-4fed-8632-ffda060b33b6)
+![image](https://github.com/user-attachments/assets/1bd4d8e7-d021-413d-b610-f58c39bde316)
+![image](https://github.com/user-attachments/assets/a2a97d4f-263c-4a83-8a34-befad8f2e8b0)
+![image](https://github.com/user-attachments/assets/3964fcae-9b64-44d1-8b02-a347fcfbb226)
+![image](https://github.com/user-attachments/assets/ce573eff-9273-49c4-ab53-30640248ba27)
+![image](https://github.com/user-attachments/assets/7b3adda8-f0a7-4941-93b7-b23ccf55f8a1)
+![image](https://github.com/user-attachments/assets/ae70c8a0-11fb-4534-aaac-7b00931c269f)
+![image](https://github.com/user-attachments/assets/18b6e31d-7115-438e-8f76-95040d78ba31)
+![image](https://github.com/user-attachments/assets/fe3d05b7-e090-463d-be87-b5805a2b914d)
+![image](https://github.com/user-attachments/assets/e9b46498-6d52-4749-a561-44ef7eeae32e)
+![image](https://github.com/user-attachments/assets/2903f7e5-186a-40b4-a41e-c8c5e324654f)
+![image](https://github.com/user-attachments/assets/59bace37-59f3-4e1d-8c95-82729a6bf5e5)
+![image](https://github.com/user-attachments/assets/74515d31-d4ba-45ca-8b2b-0ba8a11c3b53)
+![image](https://github.com/user-attachments/assets/b6b0b58f-a609-44f4-a917-c345bf20333a)
+![image](https://github.com/user-attachments/assets/c6cee56d-6316-48de-95f0-2788ef51c3f6)
+![image](https://github.com/user-attachments/assets/4bee5182-d5b8-4c5e-8807-320ee8a44479)
+![image](https://github.com/user-attachments/assets/cfee1dbd-5589-4220-a736-5e4eaac4a8e4)
+![image](https://github.com/user-attachments/assets/4443751c-624a-4141-bd9b-5d92ecc39aad)
+![image](https://github.com/user-attachments/assets/dc87329b-a213-4979-a3fc-229b5444afdc)
 
 
 
-![image](https://github.com/user-attachments/assets/e4418933-f1e7-49ae-b524-d43481d0b58d)
 
 
-![image](https://github.com/user-attachments/assets/76381ecc-9389-4cb8-979e-ddbaedec3caf)
-
-![image](https://github.com/user-attachments/assets/388ff2b7-3964-423c-9a23-8d15af13ffcb)
 
 
 
