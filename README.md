@@ -1,6 +1,6 @@
-# **Task Management App📝: An Advanced React To-Do Application with API Integration**✅  
+# **Karya📝: An API Integrated Advanced React Task Management Application**✅  
 
-A simple yet efficient **Task Manager App** built with **React.js** and **Redux Toolkit** for seamless task management. This project is designed with **state management**, **asynchronous API calls using Axios**, filter & sort options, a clean, responsive UI & more .
+A simple yet efficient **Task Management App** built with **React.js** and **Redux Toolkit** for seamless task management. This project is designed with **state management**, **asynchronous API calls using Axios**, filter & sort options, a clean, responsive UI & more .
 
 ---  
 
@@ -40,6 +40,7 @@ A simple yet efficient **Task Manager App** built with **React.js** and **Redux 
 ![image](https://github.com/user-attachments/assets/1bd4d8e7-d021-413d-b610-f58c39bde316)
 ![image](https://github.com/user-attachments/assets/a2a97d4f-263c-4a83-8a34-befad8f2e8b0)
 ![image](https://github.com/user-attachments/assets/3964fcae-9b64-44d1-8b02-a347fcfbb226)
+![image](https://github.com/user-attachments/assets/47803b32-4f8a-4441-829c-e4c1147a1433)
 ![image](https://github.com/user-attachments/assets/ce573eff-9273-49c4-ab53-30640248ba27)
 ![image](https://github.com/user-attachments/assets/7b3adda8-f0a7-4941-93b7-b23ccf55f8a1)
 ![image](https://github.com/user-attachments/assets/ae70c8a0-11fb-4534-aaac-7b00931c269f)
